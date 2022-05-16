@@ -2,7 +2,7 @@ module.exports = (_ctx) => ({
   sourceDir: 'docs',
   dest: 'docs/dist',
   port: 9090,
-
+  base: '/sophon-docs/',
   locales: {
     '/en/': {
       lang: 'en-US',
@@ -50,7 +50,7 @@ module.exports = (_ctx) => ({
   theme: '@vuepress/theme-default',
 
   themeConfig: {
-    repo: 'sophon-labs/sophob-docs',
+    repo: 'sophon-labs/sophon-docs',
     docsDir: 'packages/docs/dist',
     editLinks: true,
     logo: '/favicon.ico',
