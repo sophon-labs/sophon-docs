@@ -1,0 +1,14 @@
+{
+  "name": "MetaOS Documentation",
+  "short_name": "MetaOS Docs",
+  "icons": [
+    {
+      "src": "/favicoin.ico",
+      "sizes": "72x72 96x96 128x128 256x256 512x512"
+    }
+  ],
+  "start_url": "/index.html",
+  "display": "standalone",
+  "background_color": "#fff",
+  "theme_color": "#732ad2"
+}
