@@ -2,26 +2,26 @@ module.exports = (_ctx) => ({
   sourceDir: 'docs',
   dest: 'docs/dist',
   port: 9090,
-  base: '/sophon-docs/',
+  base: '/docs/',
   configureWebpack: {
     resolve: {
       alias: {
-        '@static': 'docs/static'
-      }
-    }
+        '@static': 'docs/static',
+      },
+    },
   },
 
   locales: {
     '/en/': {
       lang: 'en-US',
-      title: 'Sophon Docs',
-      description: 'Developer documentation for the Sophon',
+      title: 'MetaOS Docs',
+      description: 'Developer documentation for the MetaOS',
     },
-    '/zh/': {
-      lang: 'zh-CN',
-      title: 'Sophon 文档',
-      description: 'Sophon 开发者文档',
-    },
+    // '/zh/': {
+    //   lang: 'zh-CN',
+    //   title: 'MetaOS 文档',
+    //   description: 'MetaOS 开发者文档',
+    // },
   },
 
   head: [
@@ -58,7 +58,7 @@ module.exports = (_ctx) => ({
   theme: '@vuepress/theme-default',
 
   themeConfig: {
-    repo: 'sophon-labs/sophon-docs',
+    repo: 'meteos-labs/metaos-docs',
     docsDir: 'packages/docs/dist',
     editLinks: true,
     logo: '/favicon.ico',
@@ -80,21 +80,26 @@ module.exports = (_ctx) => ({
           },
         },
       },
-      '/zh/': {
-        selectText: '选择语言',
-        label: '简体中文',
-        editLinkText: '在 GitHub 上编辑此页',
-        serviceWorker: {
-          updatePopup: {
-            message: '发现新内容可用.',
-            buttonText: '刷新',
-          },
-        },
-      },
+      // '/zh/': {
+      //   selectText: '选择语言',
+      //   label: '简体中文',
+      //   editLinkText: '在 GitHub 上编辑此页',
+      //   serviceWorker: {
+      //     updatePopup: {
+      //       message: '发现新内容可用.',
+      //       buttonText: '刷新',
+      //     },
+      //   },
+      // },
     },
     sidebar: {
-      '/en/': getGuideSidebar('ABOUT SOPHON', 'For Web3 User', 'For Web3 Developer', 'For Validator&Delegators'),
-      '/zh/': getGuideSidebar('介绍', '测试1', '测试2', '测试3'),
+      '/en/': getGuideSidebar(
+        'ABOUT MetaOS',
+        'For Web3 User',
+        'For Web3 Developer',
+        'For Validator&Delegators'
+      ),
+      // '/zh/': getGuideSidebar('介绍', '测试1', '测试2', '测试3'),
     },
   },
 
@@ -137,7 +142,6 @@ module.exports = (_ctx) => ({
     ],
   ],
 
-
   // extraWatchFiles: ['.vuepress/nav/en.js', '.vuepress/nav/zh.js'],
 });
 
@@ -151,26 +155,34 @@ function getGuideSidebar(guide, test1, test2, test3) {
     {
       title: test1,
       collapsable: false,
-      children: [{
-        title: 'Basic Concepts',
-        collapsable: true,
-        children: ["for_web3_user/transactions.md", "for_web3_user/tokens.md", "for_web3_user/gas-and-fees.md"],
-      },
+      children: [
+        {
+          title: 'Basic Concepts',
+          collapsable: true,
+          children: [
+            'for_web3_user/transactions.md',
+            'for_web3_user/tokens.md',
+            'for_web3_user/gas-and-fees.md',
+          ],
+        },
         {
           title: 'Digital Wallets',
           collapsable: true,
-          children: ["for_web3_user/metamask.md", "for_web3_user/sophon-wallet.md"],
+          children: [
+            'for_web3_user/metamask.md',
+            'for_web3_user/sophon-wallet.md',
+          ],
         },
         {
           title: 'Account Keys',
           collapsable: true,
-          children: ["for_web3_user/keyring.md", "for_web3_user/multisig.md"],
+          children: ['for_web3_user/keyring.md', 'for_web3_user/multisig.md'],
         },
         {
           title: 'Tool',
           collapsable: true,
-          children: ["for_web3_user/wormhole.md"],
-        }
+          children: ['for_web3_user/wormhole.md'],
+        },
       ],
     },
     {
@@ -182,7 +194,7 @@ function getGuideSidebar(guide, test1, test2, test3) {
       title: test3,
       collapsable: false,
       children: ['test21', 'test22', 'test23'],
-    }
+    },
   ];
 }
 
