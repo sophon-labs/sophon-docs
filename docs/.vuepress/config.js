@@ -58,8 +58,9 @@ module.exports = (_ctx) => ({
   theme: '@vuepress/theme-default',
 
   themeConfig: {
-    repo: 'meteos-labs/metaos-docs',
-    docsDir: 'packages/docs/dist',
+    repo: 'metaos-labs/docs',
+    docsDir: 'docs',
+    docsBranch: 'main',
     editLinks: true,
     logo: '/favicon.ico',
     smoothScroll: true,
