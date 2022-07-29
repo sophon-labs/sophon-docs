@@ -3,6 +3,14 @@ module.exports = (_ctx) => ({
   dest: 'docs/dist',
   port: 9090,
   base: '/sophon-docs/',
+  configureWebpack: {
+    resolve: {
+      alias: {
+        '@static': 'docs/static'
+      }
+    }
+  },
+
   locales: {
     '/en/': {
       lang: 'en-US',
@@ -85,8 +93,8 @@ module.exports = (_ctx) => ({
       },
     },
     sidebar: {
-      '/en/': getGuideSidebar('Guide', 'Test1', 'Test2'),
-      '/zh/': getGuideSidebar('介绍', '测试1', '测试2'),
+      '/en/': getGuideSidebar('ABOUT SOPHON', 'For Web3 User', 'For Web3 Developer', 'For Validator&Delegators'),
+      '/zh/': getGuideSidebar('介绍', '测试1', '测试2', '测试3'),
     },
   },
 
@@ -129,10 +137,11 @@ module.exports = (_ctx) => ({
     ],
   ],
 
+
   // extraWatchFiles: ['.vuepress/nav/en.js', '.vuepress/nav/zh.js'],
 });
 
-function getGuideSidebar(guide, test1, test2) {
+function getGuideSidebar(guide, test1, test2, test3) {
   return [
     {
       title: guide,
@@ -142,13 +151,38 @@ function getGuideSidebar(guide, test1, test2) {
     {
       title: test1,
       collapsable: false,
-      children: ['test11', 'test12', 'test13'],
+      children: [{
+        title: 'Basic Concepts',
+        collapsable: true,
+        children: ["for_web3_user/transactions.md", "for_web3_user/tokens.md", "for_web3_user/gas-and-fees.md"],
+      },
+        {
+          title: 'Digital Wallets',
+          collapsable: true,
+          children: ["for_web3_user/metamask.md", "for_web3_user/sophon-wallet.md"],
+        },
+        {
+          title: 'Account Keys',
+          collapsable: true,
+          children: ["for_web3_user/keyring.md", "for_web3_user/multisig.md"],
+        },
+        {
+          title: 'Tool',
+          collapsable: true,
+          children: ["for_web3_user/wormhole.md"],
+        }
+      ],
     },
     {
       title: test2,
       collapsable: false,
       children: ['test21', 'test22', 'test23'],
     },
+    {
+      title: test3,
+      collapsable: false,
+      children: ['test21', 'test22', 'test23'],
+    }
   ];
 }
 
